@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <title>Главная</title>
 </head>
-<body>
 
+<body>
+    
 <?php if (isset($_SESSION['username'])): ?>
     <p>Данные из сессии:</p>
     <ul>
@@ -35,6 +36,13 @@
     <pre><?= print_r($_SESSION['api_data'], true) ?></pre>
     <?php unset($_SESSION['api_data']); ?>
 <?php endif; ?>
+
+<?php
+require_once 'UserInfo.php';
+$info = UserInfo::getInfo();
+?>
+<h3>Информация о пользователе:</h3>
+<p>Данные успешно загружены (скрыто для приватности).</p>
 
 </body>
 </html>
