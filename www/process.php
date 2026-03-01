@@ -13,6 +13,15 @@ if(!empty($errors)){
     exit();
 }
 
+require_once 'ApiClient.php';
+$api = new ApiClient();
+
+$url = 'https://www.themealdb.com/api/json/v1/1/random.php'; 
+$apiData = $api->request($url);
+
+$_SESSION['api_data'] = $apiData;
+
+
 $_SESSION['username'] = $username;
 $_SESSION['count_order'] = $count_order;
 $line = $username . ";" . $count_order . "\n";
